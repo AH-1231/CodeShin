@@ -14,11 +14,11 @@
 {
   "userId": 1,
   "level": 1,
-  "totalPracticed": 54
+  "totalPracticed": [201, 202, 203]
 }
 ```
 - `level`：用户当前水平（1-3，分别为初级、中级、高级）
-- `totalPracticed`：用户已练习的题目数量
+- `totalPracticed`：用户已通过的题目列表
 ### GET /api/user/:id/last-question
 
 获取用户上次正在做的题目的信息
@@ -173,6 +173,31 @@ GET /api/user/1/last-ai-reply?prompt=为什么这里超出索引？
 - `passed`：本题是否通过
 - `feedback`：题目反馈
 - `evaluation`：知识点掌握评分
+
+### POST /api/submit/evaluate
+
+通过用户当前通过本题的评估，给出题目推荐
+
+**请求体**：
+```json
+{
+  "userId": 1,
+  "questionId": 201,
+  "evaluation": {
+    "链表": 3,
+    "指针操作": 2
+  }
+}
+```
+
+**响应**：
+```json
+{
+  “newQuestions”:{
+  "链表":201,
+  "指针操作": 203
+}
+}
 
 ## 4. AI 问答模块
 
