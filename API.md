@@ -1,4 +1,4 @@
-# API for Yuanshen
+# API for Yuans
 
 ## 写在前面
 - 文档涵盖了所有 API，包括用户管理、题目管理、代码管理、用户进度管理、推荐系统和 GPT 对话管理。
